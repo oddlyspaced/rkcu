@@ -1,16 +1,26 @@
 from dataclasses import dataclass
+from enums import Speed, Brightness, RainbowMode, Sleep
 
 # data class of base config for usb report 
 @dataclass
 class BaseConfig:
     ANIMATION_TYPE: oct
-    ANIMATION_SPEED: oct
-    ANIMATION_BRIGHTNESS: oct
-    ANIMATION_GREEN: oct
-    ANIMATION_RED: oct
-    ANIMATION_BLUE: oct
-    ANIMATION_RAINBOW: oct
-    ANIMATION_SLEEP_DURATION: oct
+    ANIMATION_SPEED: Speed
+    ANIMATION_BRIGHTNESS: Brightness
+    ANIMATION_GREEN: int
+    ANIMATION_RED: int
+    ANIMATION_BLUE: int
+    ANIMATION_RAINBOW: RainbowMode
+    ANIMATION_SLEEP_DURATION: Sleep
+
+    def __init__(self, speed: Speed = Speed.SPEED_5, brightness: Brightness = Brightness.BRIGHTNESS_5, red: int = 255, green: int = 255, blue: int = 255, is_rainbow: RainbowMode = RainbowMode.OFF, sleep: Sleep = Sleep.SLEEP_NEVER) -> None:
+        self.ANIMATION_SPEED = speed
+        self.ANIMATION_BRIGHTNESS = brightness
+        self.ANIMATION_RED = red
+        self.ANIMATION_GREEN = green
+        self.ANIMATION_BLUE = blue
+        self.ANIMATION_RAINBOW = is_rainbow
+        self.ANIMATION_SLEEP_DURATION = sleep
 
     def report(self) -> bytearray:
         report = bytearray(65)
