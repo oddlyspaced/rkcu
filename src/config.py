@@ -1,10 +1,10 @@
 from dataclasses import dataclass
-from .enums import Speed, Brightness, RainbowMode, Sleep
+from .enums import Animation, Speed, Brightness, RainbowMode, Sleep
 
 # data class of base config for usb report 
 @dataclass
 class BaseConfig:
-    ANIMATION_TYPE: oct
+    ANIMATION_TYPE: Animation
     ANIMATION_SPEED: Speed
     ANIMATION_BRIGHTNESS: Brightness
     ANIMATION_GREEN: int
@@ -13,8 +13,8 @@ class BaseConfig:
     ANIMATION_RAINBOW: RainbowMode
     ANIMATION_SLEEP_DURATION: Sleep
 
-    def __init__(self, speed: Speed = Speed.SPEED_5, brightness: Brightness = Brightness.BRIGHTNESS_5, red: int = 255, green: int = 255, blue: int = 255, is_rainbow: RainbowMode = RainbowMode.OFF, sleep: Sleep = Sleep.SLEEP_NEVER) -> None:
-        self.ANIMATION_TYPE = 0x01
+    def __init__(self, animation: Animation = Animation.NEON_STREAM, speed: Speed = Speed.SPEED_5, brightness: Brightness = Brightness.BRIGHTNESS_5, red: int = 255, green: int = 255, blue: int = 255, is_rainbow: RainbowMode = RainbowMode.OFF, sleep: Sleep = Sleep.SLEEP_NEVER) -> None:
+        self.ANIMATION_TYPE = animation
         self.ANIMATION_SPEED = speed
         self.ANIMATION_BRIGHTNESS = brightness
         self.ANIMATION_RED = red
@@ -30,7 +30,7 @@ class BaseConfig:
         report[2] = 0x01
         report[3] = 0x02
         report[4] = 0x29
-        report[5] = self.ANIMATION_TYPE
+        report[5] = self.ANIMATION_TYPE.value
         report[6] = 0x00
         report[7] = self.ANIMATION_SPEED.value
 
