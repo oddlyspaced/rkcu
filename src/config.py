@@ -13,7 +13,7 @@ class Config:
     ANIMATION_RAINBOW: RainbowMode
     ANIMATION_SLEEP_DURATION: Sleep
 
-    def __init__(self, animation: Animation = Animation.NEON_STREAM, speed: Speed = Speed.SPEED_5, brightness: Brightness = Brightness.BRIGHTNESS_5, red: int = 255, green: int = 255, blue: int = 255, is_rainbow: RainbowMode = RainbowMode.OFF, sleep: Sleep = Sleep.SLEEP_NEVER) -> None:
+    def __init__(self, animation: Animation, speed: Speed, brightness: Brightness, red: int, green: int, blue: int, is_rainbow: RainbowMode, sleep: Sleep) -> None:
         self.ANIMATION_TYPE = animation
         self.ANIMATION_SPEED = speed
         self.ANIMATION_BRIGHTNESS = brightness
@@ -42,3 +42,15 @@ class Config:
         report[13] = self.ANIMATION_SLEEP_DURATION.value
 
         return report
+
+def get_base_config() -> Config:
+    config = Config()
+    config.animation = Animation.NEON_STREAM
+    config.speed = Speed.SPEED_5
+    config.brightness = Brightness.BRIGHTNESS_5
+    config.red = 255
+    config.green = 255
+    config.blue = 255
+    config.is_rainbow = RainbowMode.OFF
+    config.sleep = Sleep.SLEEP_NEVER
+    return config
