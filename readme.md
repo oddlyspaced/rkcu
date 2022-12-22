@@ -47,9 +47,10 @@ Arguments :
 	 - retro_snake
 	 - diagonal_transformer
 	 - ambilight
-     	 - streamer
-     	 - steady
+	 - streamer
+	 - steady
 	 - breathing
-	 - neon": Animation.NEON,
-     	 - shadow_disappear
+	 - neon
+	 - shadow_disappear
 	 - flash_away
+
