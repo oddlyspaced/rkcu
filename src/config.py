@@ -44,13 +44,14 @@ class Config:
         return report
 
 def get_base_config() -> Config:
-    config = Config()
-    config.animation = Animation.NEON_STREAM
-    config.speed = Speed.SPEED_5
-    config.brightness = Brightness.BRIGHTNESS_5
-    config.red = 255
-    config.green = 255
-    config.blue = 255
-    config.is_rainbow = RainbowMode.OFF
-    config.sleep = Sleep.SLEEP_NEVER
+    config = Config(
+        Animation.NEON_STREAM,
+        Speed.SPEED_5,
+        Brightness.BRIGHTNESS_5,
+        255,
+        255,
+        255,
+        RainbowMode.OFF,
+        Sleep.SLEEP_NEVER
+    )
     return config
