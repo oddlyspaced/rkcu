@@ -1,3 +1,4 @@
+
 # RKCU - Royal Kludge Color Utility
 Python based command line utility to manage led color profiles on Royal Kludge RK 61 Keyboard.
 
@@ -7,32 +8,32 @@ How to use:
 
 Arguments :
 
-    --speed [1-5]
+    --speed, --sp [1-5]
     # speed of led animation.
     
-    --brightness [0-5]
+    --brightness, -br [0-5]
     # brightness of led animation
 	
-	--sleep [1-5]
+	--sleep, -sl [1-5]
 	# 1: 05 Minutes
 	# 2: 10 Minutes
 	# 3: 20 Minutes
 	# 4: 30 Minutes
 	# 5: Never Sleep
 	
-	--rainbow
+	--rainbow, -rb
 	# Set LED color mode to Rainbow
 	
-	--red 0-255
+	--red, -r 0-255
 	# Red value of Color
 	
-	--green 0-255
+	--green, -g 0-255
 	# Green value of Color
 	
-	--blue 0-255
+	--blue, -b 0-255
 	# Blue value of Color
 	
-	--animation "animation_name"
+	--animation, -an "animation_name"
 	# List of availaible animations:
 	 - neon_stream
 	 - ripples_shining
