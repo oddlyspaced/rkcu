@@ -3,7 +3,7 @@ from .enums import Animation, Speed, Brightness, RainbowMode, Sleep
 
 # data class of base config for usb report 
 @dataclass
-class BaseConfig:
+class Config:
     ANIMATION_TYPE: Animation
     ANIMATION_SPEED: Speed
     ANIMATION_BRIGHTNESS: Brightness
