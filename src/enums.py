@@ -7,6 +7,21 @@ class Speed(Enum):
     SPEED_4 = 0x04
     SPEED_5 = 0x05
 
+    @staticmethod
+    def from_value(value: int):
+        values = {
+            1: Speed.SPEED_1,
+            2: Speed.SPEED_2,
+            3: Speed.SPEED_3,
+            4: Speed.SPEED_4,
+            5: Speed.SPEED_5,
+        }
+        if value in list(values.keys()):
+            return values[value]
+        else :
+            print("warning: unable to find specified speed, using Speed 5")
+            return Speed.SPEED_5 # default value
+
 class Brightness(Enum):
     BRIGHTNESS_0 = 0x00
     BRIGHTNESS_1 = 0X01
@@ -15,9 +30,32 @@ class Brightness(Enum):
     BRIGHTNESS_4 = 0X04
     BRIGHTNESS_5 = 0X05
 
+    @staticmethod
+    def from_value(value: int):
+        values = {
+            0: Brightness.BRIGHTNESS_0,
+            1: Brightness.BRIGHTNESS_1,
+            2: Brightness.BRIGHTNESS_2,
+            3: Brightness.BRIGHTNESS_3,
+            4: Brightness.BRIGHTNESS_4,
+            5: Brightness.BRIGHTNESS_5,
+        }
+        if value in list(values.keys()):
+            return values[value]
+        else :
+            print("warning: unable to find specified brightness, using Brightness 5")
+            return Brightness.BRIGHTNESS_5 # default value
+
 class RainbowMode(Enum):
     OFF = 0x00
     ON = 0x01
+
+    @staticmethod
+    def from_value(value: bool):
+        if value:
+            return RainbowMode.ON
+        else :
+            return RainbowMode.OFF
 
 class Sleep(Enum):
     SLEEP_5_MIN = 0x01
@@ -25,6 +63,21 @@ class Sleep(Enum):
     SLEEP_20_MIN = 0x03
     SLEEP_30_MIN = 0x04
     SLEEP_NEVER = 0x05
+
+    @staticmethod
+    def from_value(value: int):
+        values = {
+            1: Sleep.SLEEP_5_MIN,
+            2: Sleep.SLEEP_10_MIN,
+            3: Sleep.SLEEP_20_MIN,
+            4: Sleep.SLEEP_30_MIN,
+            5: Sleep.SLEEP_NEVER,
+        }
+        if value in list(values.keys()):
+            return values[value]
+        else :
+            print("warning: unable to find specified sleep value, using Never Sleep")
+            return Sleep.SLEEP_NEVER # default value
 
 class Animation(Enum):
     NEON_STREAM = 0x01
@@ -49,3 +102,32 @@ class Animation(Enum):
     SHADOW_DISAPPEAR = 0x14
     FLASH_AWAY = 0x15
     # MUSIC = 0x16
+
+    @staticmethod
+    def from_value(value: str):
+        values = {
+            "neon_stream": Animation.NEON_STREAM,
+            "ripples_shining": Animation.RIPPLES_SHINING,
+            "sine_wave": Animation.SINE_WAVE,
+            "rainbow_routlette": Animation.RAINBOW_ROULETTE,
+            "stars_twinkle": Animation.STARS_TWINKLE,
+            "layer_upon_layer": Animation.LAYER_UPON_LAYER,
+            "rich_and_honored": Animation.RICH_AND_HONORED,
+            "marquee_effect": Animation.MARQUEE_EFFECT,
+            "rotating_storm": Animation.ROTATING_STORM,
+            "serpentine_horse": Animation.SERPENTINE_HORSE,
+            "retro_snake": Animation.RETRO_SNAKE,
+            "diagonal_transformer": Animation.DIAGONAL_TRANSFORMER,
+            "ambilight": Animation.AMBILIGHT,
+            "streamer": Animation.STREAMER,
+            "steady": Animation.STEADY,
+            "breathing": Animation.BREATHING,
+            "neon": Animation.NEON,
+            "shadow_disappear": Animation.SHADOW_DISAPPEAR,
+            "flash_away": Animation.FLASH_AWAY
+        }
+        if value in list(values.keys()):
+            return values[value]
+        else :
+            print("warning: unable to find specified animation, using Neon Stream")
+            return Animation.NEON_STREAM # default value
