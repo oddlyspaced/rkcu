@@ -24,14 +24,14 @@ class Config:
         self.ANIMATION_SLEEP_DURATION = sleep
     
     def update(self, var: dict):
-        self.ANIMATION_TYPE = Animation.from_value(var['animation'])
-        self.ANIMATION_SPEED = Speed.from_value(var['speed'])
-        self.ANIMATION_BRIGHTNESS = Brightness.from_value(var['brightness'])
+        self.ANIMATION_TYPE = Animation.from_value("neon_stream" if var['animation'] == None else var['animation'])
+        self.ANIMATION_SPEED = Speed.from_value(5 if var['speed'] == None else int(var['speed']))
+        self.ANIMATION_BRIGHTNESS = Brightness.from_value(5 if var['brightness'] == None else int(var['brightness']))
         self.ANIMATION_RED = int(255 if var['red'] == None else var['red'])
         self.ANIMATION_GREEN = int(255 if var['green'] == None else var['green'])
         self.ANIMATION_BLUE = int(255 if var['blue'] == None else var['blue'])
         self.ANIMATION_RAINBOW = RainbowMode.from_value(var['rainbow'])
-        self.ANIMATION_SLEEP_DURATION = Sleep.from_value(var['sleep'])
+        self.ANIMATION_SLEEP_DURATION = Sleep.from_value(5 if var['sleep'] == None else int(var['sleep']))
 
     def report(self) -> bytearray:
         report = bytearray(65)
