@@ -3,12 +3,12 @@ import argparse
 from rkcu.config import get_base_config
 from rkcu.utils import RKCU
 
-# Python based Command Line wrapper for managing color modes on Royal Kludge RK 61 Keyboard
+# Python based Command Line wrapper for managing profiles on Royal Kludge RK 61 Keyboard
 # author: Hardik Srivastava [oddlyspaced]
 
 parser = argparse.ArgumentParser(
-    prog = 'RK61 Color Utility - Linux',
-    description = 'Linux Utility to manage LED\'s on the Royal Kludge RK61 Keyboard.'
+    prog = 'RK61 Config Utility - Linux',
+    description = 'Linux Utility to manage profiles on the Royal Kludge RK61 Keyboard.'
 )
 
 color_config = get_base_config()
