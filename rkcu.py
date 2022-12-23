@@ -6,9 +6,6 @@ from rkcu.utils import RKCU
 # Python based Command Line wrapper for managing color modes on Royal Kludge RK 61 Keyboard
 # author: Hardik Srivastava [oddlyspaced]
 
-# sample usage
-# rkcu --speed 4 --brightness 5 --rainbow --sleep never --animation neon_stream --red 128 --green 128 --blue 128
-
 parser = argparse.ArgumentParser(
     prog = 'RK61 Color Utility - Linux',
     description = 'Linux Utility to manage LED\'s on the Royal Kludge RK61 Keyboard.'
