@@ -1,7 +1,7 @@
 import argparse
 
-from src.config import get_base_config
-from src.utils import RKCU
+from rkcu.config import get_base_config
+from rkcu.utils import RKCU
 
 # Python based Command Line wrapper for managing color modes on Royal Kludge RK 61 Keyboard
 # author: Hardik Srivastava [oddlyspaced]
