@@ -21,5 +21,6 @@ lines = f.readlines()
 f.close()
 
 for line in lines:
-    print(line)
-    gen_report(line)
+    if line[0] != '#':
+        print(line)
+        gen_report(line)
