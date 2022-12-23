@@ -1,15 +1,15 @@
 
-# RKCU - Royal Kludge Color Utility
-Python3 based command line utility to manage LED color profiles on [Royal Kludge RK 61 Keyboard](https://www.meckeys.com/shop/keyboard/60-keyboard/royal-kludge-rk61-hot-swappable/).
+# RKCU - Royal Kludge Config Utility
+Python3 based command line utility to manage and modify profiles on [Royal Kludge RK 61 Keyboard](https://www.meckeys.com/shop/keyboard/60-keyboard/royal-kludge-rk61-hot-swappable/).
 
 ## Dependencies
 
     hidapi
-Installable using pip by running :
+Installable using `pip` by running :
 
     $ pip install hidapi
 
-## How to use:
+## How to use
 
     # python rkcu.py <arguments>
 
@@ -69,9 +69,10 @@ Example :
     # python rkcu.py -sp 5 -an "rotating_storm" -rb
 
 ## Notes
-- The `--rainbow` argument will overrule the `--red, --green, --blue` parameters.
 
-- By default the script would require superuser access to run. In order to run this without root, you can plug a udev rule by performing the following steps :
+The `--rainbow` argument will overrule the `--red, --green, --blue` parameters.
+
+By default the script would require superuser access to run. In order to run this without root, you can plug a udev rule by performing the following steps :
 Step 1: Find your vendor id and product id. Here it is `258a` and `004a` respectively, and would most likely be same for you if you are having the same keyboard.
 
     $ lsusb
@@ -80,15 +81,20 @@ Step 1: Find your vendor id and product id. Here it is `258a` and `004a` respect
     Bus 001 Device 002: ID 258a:004a SINO WEALTH RK Bluetooth Keyboard
     Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
-	Step 2:
+Step 2:
 add a `rules` file to `/etc/udev/rules.d`
 file: `60-rk.rules`
 
-		SUBSYSTEMS=="usb|hidraw", ATTRS{idVendor}=="258a", ATTRS{idProduct}=="004a", TAG+="uaccess"
+    SUBSYSTEMS=="usb|hidraw", ATTRS{idVendor}=="258a", ATTRS{idProduct}=="004a", TAG+="uaccess"
 
-	replace `258a` with your vendor id and `004a` with your product id, in case it is different.
+replace `258a` with your vendor id and `004a` with your product id, in case it is different.
+Step 3:
+Finally, reload your udev rules by running the following command :
 
-	Step 3:
-	Finally, reload your udev rules by running the following command :
+    # udevadm control --reload-rules && udevadm trigger
 
-	    # udevadm control --reload-rules && udevadm trigger
+## What's working?
+Currently the script allows setting and configuring of inbuilt color profiles on the keyboard. Custom customisation such as custom LED colors and macros are still not present but will (hopefully) be soon supported.
+
+## Credits
+Big credits to [this](https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues/2308) issue thread on the OpenRGB Gitlab Repo that served great reference.
