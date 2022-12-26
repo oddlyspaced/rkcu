@@ -16,7 +16,7 @@ def gen_report(line: str):
         report[index] = int(spl[index], 16)
     h.send_feature_report(bytes(report))
 
-f = open('custom_led_dump.txt', 'r')
+f = open('custom_led.txt', 'r')
 lines = f.readlines()
 f.close()
 
